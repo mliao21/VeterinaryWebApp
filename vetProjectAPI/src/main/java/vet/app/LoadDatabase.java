@@ -144,5 +144,16 @@ public class LoadDatabase {
 
 		};
 	}
+	
+	@Bean
+	CommandLineRunner initUserDB(UserRepository repository) {
+		return args -> {
+			log.info("Preloading " + repository.save(new User("user 1", "admin", "admin@ucalgary.ca", "2021/03/04", false)));
+		    log.info("Preloading " + repository.save(new User("user 2", "animal technician", "a.technician@ucalgary.ca", "2021/03/04", false)));
+		    log.info("Preloading " + repository.save(new User("user 3", "teacher", "teacher@ucalgary.ca", "2021/03/05", false)));
+		    log.info("Preloading " + repository.save(new User("user 4", "student", "student@ucalgary.ca", "2021/03/19", false)));
+
+		};
+    }
   
 }
