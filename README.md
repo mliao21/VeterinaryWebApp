@@ -33,6 +33,13 @@ VMWA-35: Treatment Process Epic
 - VMWA-56 >> curl -X GET http://localhost:8080/treatment/records/1
 - VMWA-57 >> curl -X PUT "http://localhost:8080/treatment/records/comment/1" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"id\": 1, \"comment\":\"testing\"},"
 - VMWA-59 >> curl -X PUT "http://localhost:8080/treatment/records/comment/1" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"id\": 1, \"comment\":\"testing\"},"
+- 
+VMWA=31 Animal management epic
+- VMWA-47 >> curl -X GET http://localhost:8080/animals
+- VMWA-48 >> curl -X PUT "http://localhost:8080/animals/4" -H "accept: /" -H "Content-Type: application/json" -d "{ \"id\": 4,\ "type":"bunny\", \"weight\":1.9, \"DOB\":"2018-08-28", \"sex\":"MN",\"colour\":"white", \"bread\":"brown bunny", \"tattoo\":24234, \"city\": \"Canada\", \"RFID\":"19783917834", \"microchirp\":"19783464834", \"status\":"Injured", \"draught\":"", \"meat\":"", \"region\":"North America", \"subspecies\":"", \"distinguishing\":"", \"features\":""},"
+- VMWA-50 >> curl -X POST "http://localhost:8080/animals -H "accept: /" -H "Content-Type: application/json" -d "{\"type\":"cat", \"weight\":2.5, \"DOB\":"2018-08-28", \"sex\":"MN", \"colour\":"white", \"bread\":"white cat", \"tattoo\":24234, \"city\": "Mexico", \"RFID\":"19783917834", \"microchirp\":"19783464834", \"status\":"Available", \"draught\":"", \"meat\":"", \"region\":"North America", \"subspecies\":"", \"distinguishing\":"", \"features\":""}"
+
+
 
 
 
