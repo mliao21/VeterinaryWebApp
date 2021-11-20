@@ -47,5 +47,34 @@ public class LoadDatabase {
     };
     
   }
+
+    @Bean
+    CommandLineRunner initAnimalDatabase(AnimalRepository repository) {
+
+        return args -> {
+            log.info("Preloading "
+                    + repository.save(new Animal("Dog", 3.6, "2018-08-15", "MN", "Black and White", "Beagle", 234234,
+                    "HOC London", "197839178371", "176387613813", "Available", "", "", "", "", "", "")));
+            log.info("Preloading " + repository.save(
+                    new Animal("Horse", 68, "2018-08-31", "FM", "", "Vanners", 564543, "ABC Paris", "8987498179390",
+                            "5671876189197", "Injured", "", "", "", "", "High-stepping trot, flashy", "appearance")));
+            log.info("Preloading "
+                    + repository.save(new Animal("Cow", 127, "2018-02-31", "Mn", "", "Abigar", 564543, "CBH India",
+                    "83612863189", "812381931998", "Sick", "Endangered", "meat", "Spain", "Taurus", "", "")));
+
+        };
+    }
+
+    @Bean
+    CommandLineRunner initAnimalStatusHistoryDB(AnimalStatusHistoryRepository repository) {
+
+        return args -> {
+            log.info("Preloading "
+                    + repository.save(new AnimalStatusHistory("2021-12-12", "", "In Campus", "Available", 1)));
+            log.info("Preloading " + repository
+                    .save(new AnimalStatusHistory("2021-11-01", "Her foot is injured", "Hospital", "Injured", 2)));
+
+        };
+    }
   
 }
