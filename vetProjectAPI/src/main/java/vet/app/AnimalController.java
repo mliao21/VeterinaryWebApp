@@ -40,7 +40,7 @@ public class AnimalController {
 		return repository.findById(id).orElseThrow(() -> new AnimalNotFoundException(id));
 	}
 
-	@PutMapping("/employees/{id}")
+	@PutMapping("/animals/{id}")
 	Animal replaceAnimal(@RequestBody Animal newAnimal, @PathVariable Long id) {
 
 		return repository.findById(id).map(animal -> {
