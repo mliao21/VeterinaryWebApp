@@ -76,5 +76,28 @@ public class LoadDatabase {
 
         };
     }
+
+    @Bean
+	CommandLineRunner initCommentDB(CommentRepository repository) {
+
+		return args -> {
+			log.info("Preloading " + repository.save(new Comment(1, 1, "He is ill")));
+			log.info("Preloading " + repository.save(new Comment(1, 2, "she is injured.")));
+			log.info("Preloading " + repository.save(new Comment(2, 3, "I think he has pain")));
+
+		};
+	}
+
+	@Bean
+	CommandLineRunner initImagesDB(ImagesRepository repository) {
+
+		return args -> {
+			log.info("Preloading " + repository.save(new Images(1, "2021-03-08", "image1.png", 1, "profile")));
+			log.info("Preloading " + repository.save(new Images(4, "2021-03-09", "image2.png", 2, "injury")));
+			log.info("Preloading " + repository.save(new Images(4, "2021-03-10", "image3.png", 1, "Treatment")));
+			log.info("Preloading " + repository.save(new Images(3, "2021-03-11", "image4.png", 1, "injury")));
+
+		};
+	}
   
 }
