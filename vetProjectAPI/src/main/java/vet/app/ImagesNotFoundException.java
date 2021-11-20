@@ -1,4 +1,4 @@
-package veterinary.application;
+package vet.app;
 
 public class ImagesNotFoundException extends RuntimeException {
 

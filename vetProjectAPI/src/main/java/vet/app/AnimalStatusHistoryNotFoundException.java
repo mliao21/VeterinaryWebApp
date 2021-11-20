@@ -1,4 +1,4 @@
-package veterinary.application;
+package vet.app;
 
 public class AnimalStatusHistoryNotFoundException extends RuntimeException{
 	
