@@ -19,7 +19,8 @@ VMWA-34: User Management Epic
 - VMWA-45
 - VMWA-46
 - VMWA-60
-	
+
+Smple guideline for running Curl commands.	
 VMWA-35: Treatment Process Epic
 - VMWA-47 >> curl -X GET http://localhost:8080/treatment/records
 - VMWA-48 >> curl -X PUT "http://localhost:8080/treatment/records/comment/1" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"id\": 1, \"comment\":\"testing\"},"
@@ -32,4 +33,6 @@ VMWA-35: Treatment Process Epic
 - VMWA-56 >> curl -X GET http://localhost:8080/treatment/records/1
 - VMWA-57 >> curl -X PUT "http://localhost:8080/treatment/records/comment/1" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"id\": 1, \"comment\":\"testing\"},"
 - VMWA-59 >> curl -X PUT "http://localhost:8080/treatment/records/comment/1" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"id\": 1, \"comment\":\"testing\"},"
+
+
 
