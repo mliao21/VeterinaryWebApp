@@ -47,6 +47,51 @@ public class LoadDatabase {
     };
     
   }
+  
+  @Bean
+  CommandLineRunner initTreatmentRecordDB(TreatmentRecordRepository repository) {
+    return args -> {
+    	log.info("Preloading " + repository.save(new TreatmentRecord("11/19/2021", 1, 1, TreatmentStages.REQUEST_REGULAR, "eye injury", "12/31/2021", 1)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("11/20/2021", 2, 2, TreatmentStages.REQUEST_CRITICAL, "hips swollen", "12/31/2021", 2)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("11/21/2021", 3, 3, TreatmentStages.IN_PROGRESS_CRITICAL, "eye injury", "12/31/2021", 3)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("11/22/2021", 4, 4, TreatmentStages.IN_PROGRESS_REGULAR, "hips swollen", "12/31/2021", 1)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("11/23/2021", 5, 5, TreatmentStages.COMPLETED, "eye injury", "12/31/2021", 2)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("11/24/2021", 6, 6, TreatmentStages.REQUEST_REGULAR, "hips swollen", "12/31/2021", 3)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("11/25/2021", 7, 7, TreatmentStages.REQUEST_CRITICAL, "eye injury", "12/31/2021", 1)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("11/26/2021", 1, 8, TreatmentStages.IN_PROGRESS_CRITICAL, "hips swollen", "12/31/2021", 2)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("11/27/2021", 2, 9, TreatmentStages.IN_PROGRESS_REGULAR, "eye injury", "12/31/2021", 3)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("11/28/2021", 3, 10, TreatmentStages.COMPLETED, "hips swollen", "12/31/2021", 1)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("11/29/2021", 4, 11, TreatmentStages.REQUEST_REGULAR, "eye injury", "12/31/2021", 2)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("11/30/2021", 5, 12, TreatmentStages.REQUEST_CRITICAL, "hips swollen", "12/31/2021", 3)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("12/01/2021", 6, 13, TreatmentStages.IN_PROGRESS_CRITICAL, "eye injury", "12/31/2021", 1)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("12/02/2021", 7, 14, TreatmentStages.IN_PROGRESS_REGULAR, "hips swollen", "12/31/2021", 2)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("12/03/2021", 1, 15, TreatmentStages.COMPLETED, "eye injury", "12/31/2021", 3)));
+    	log.info("Preloading " + repository.save(new TreatmentRecord("12/04/2021", 2, 16, TreatmentStages.COMPLETED, "hips swollen", "12/31/2021", 1)));   
+
+    };
+  }
+  
+  @Bean
+  CommandLineRunner initPrescriptionRecordMethodDB(PrescriptionRecordRepository repository) {
+    return args -> {
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(1, 1, ScheduleType.Hourly, "take shots", "12/31/2021", 1)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(2, 16, ScheduleType.Monthly, "check fur", "12/31/2021", 2)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(3, 15, ScheduleType.Daily, "monitor paws", "12/31/2021", 3)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(4, 14, ScheduleType.Annual, "take shots", "12/31/2021", 1)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(5, 13, ScheduleType.Weekly, "check fur", "12/31/2021", 2)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(6, 12, ScheduleType.Hourly, "monitor paws", "12/31/2021", 3)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(7, 11, ScheduleType.Monthly, "take shots", "12/31/2021", 1)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(8, 10, ScheduleType.Daily, "check fur", "12/31/2021", 2)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(9, 9, ScheduleType.Annual, "monitor paws", "12/31/2021", 3)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(10, 8, ScheduleType.Weekly, "take shots", "12/31/2021", 1)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(11, 7, ScheduleType.Hourly, "check fur", "12/31/2021", 2)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(12, 6, ScheduleType.Monthly, "monitor paws", "12/31/2021", 3)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(13, 15, ScheduleType.Daily, "take shots", "12/31/2021", 1)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(14, 4, ScheduleType.Annual, "check fur", "12/31/2021", 2)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(15, 3, ScheduleType.Weekly, "monitor paws", "12/31/2021", 3)));
+    	log.info("Preloading " + repository.save(new PrescriptionRecord(16, 12, ScheduleType.Weekly, "take shots", "12/31/2021", 1)));
+    };
+  }
 
     @Bean
     CommandLineRunner initAnimalDatabase(AnimalRepository repository) {
