@@ -1,4 +1,4 @@
-package vet.app;
+package vet.animal;
 
 public class AnimalNotFoundException extends RuntimeException {
 	

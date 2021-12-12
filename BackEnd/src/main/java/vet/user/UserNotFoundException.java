@@ -1,4 +1,4 @@
-package vet.app;
+package vet.user;
 
 public class UserNotFoundException extends RuntimeException {
 	

@@ -1,4 +1,4 @@
-package vet.app;
+package vet.animal;
 import java.util.Objects;
 
 import javax.persistence.Entity;

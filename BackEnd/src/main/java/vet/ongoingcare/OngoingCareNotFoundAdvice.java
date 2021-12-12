@@ -1,4 +1,4 @@
-package vet.app;
+package vet.ongoingcare;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
 
-public class AnimalNotFoundAdvice {
+public class OngoingCareNotFoundAdvice {
 	
-	 @ResponseBody
-	  @ExceptionHandler(AnimalNotFoundException.class)
-	  @ResponseStatus(HttpStatus.NOT_FOUND)
-	  String AnimalNotFoundHandler(AnimalNotFoundException ex) {
+	@ResponseBody
+	@ExceptionHandler(OngoingCareNotFoundException.class)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	String OngoingCareNotFoundHandler(OngoingCareNotFoundException ex) {
 	    return ex.getMessage();
-	  }
+	}
 
 }

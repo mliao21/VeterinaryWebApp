@@ -1,4 +1,4 @@
-package vet.app;
+package vet.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,26 +1,26 @@
-package vet.app;
-
-import java.util.Objects;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class AnimalRequests {
-	
-	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long requestID;
-	private long animalID;
-	private long userID;
-	private String requestStatus;
+//package vet.app;
+//
+//import java.util.Objects;
+//
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
+//import javax.persistence.Id;
+//
+//import lombok.AllArgsConstructor;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
+//
+//@Entity
+//@Data
+//@NoArgsConstructor
+//@AllArgsConstructor
+//public class AnimalRequests {
+//	
+//	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long requestID;
+//	private long animalID;
+//	private long userID;
+//	private String requestStatus;
 	
 //	public AnimalRequests() {}
 //
@@ -90,4 +90,4 @@ public class AnimalRequests {
 //
 //	}
 //	
-}
+//}
