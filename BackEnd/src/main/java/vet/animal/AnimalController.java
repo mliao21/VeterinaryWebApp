@@ -22,26 +22,6 @@ public class AnimalController {
 		return aDAO.getAll();
 	}
 	
-	@GetMapping("/animals/available")
-	public List<Animal> getAvailableAnimals(){
-		return aDAO.getAvailableAnimals();
-	}
-	
-	@GetMapping("/animals/new_animal_requests")
-	public List<Animal> getNewRequests(){
-		return aDAO.getNewRequests();
-	}
-	
-	@GetMapping("/animals/pending_animal_requests")
-	public List<Animal> getPendingAnimalRequests(){
-		return aDAO.getPendingAnimalRequests();
-	}
-	
-	@GetMapping("/animals/approved_by_admin_requests")
-	public List<Animal> getApprovedByAdminRequests(){
-		return aDAO.getApprovedByAdminRequests();
-	}
-	
 	@GetMapping("/animals/{id}")
 	public Animal getAnimalByID(@PathVariable int id) {
 		return aDAO.getByID(id);

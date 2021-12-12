@@ -18,12 +18,13 @@ import lombok.NoArgsConstructor;
 public class Animal {
 
 	// private @Id @GeneratedValue Long id;
-	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
-	private String type;
-	private String breed;
+	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long animalid;
 	private String name;
-	private String status;
+	private String sex;
+	private String Age;
 	private double weight;
+	private String species;
+	private String breed;
 	
 	
 	
