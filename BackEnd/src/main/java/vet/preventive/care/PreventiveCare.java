@@ -1,4 +1,4 @@
-package preventive.care;
+package vet.preventive.care;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,7 +25,4 @@ import lombok.NoArgsConstructor;
 		this.type = type;
 	}
 	
-	
-	
-
 }

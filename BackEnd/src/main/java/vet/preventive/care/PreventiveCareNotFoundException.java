@@ -1,4 +1,4 @@
-package preventive.care;
+package vet.preventive.care;
 
 public class PreventiveCareNotFoundException extends RuntimeException {
 	

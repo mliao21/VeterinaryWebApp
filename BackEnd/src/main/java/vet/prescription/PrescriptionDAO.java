@@ -1,4 +1,4 @@
-package prescription;
+package vet.prescription;
 
 import java.util.List;
 

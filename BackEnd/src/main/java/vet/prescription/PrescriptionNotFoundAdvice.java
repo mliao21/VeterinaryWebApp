@@ -1,4 +1,4 @@
-package prescription;
+package vet.prescription;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

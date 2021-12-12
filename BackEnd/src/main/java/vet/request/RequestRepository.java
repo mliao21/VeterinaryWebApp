@@ -1,4 +1,4 @@
-package request;
+package vet.request;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

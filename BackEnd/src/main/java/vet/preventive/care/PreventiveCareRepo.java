@@ -1,4 +1,4 @@
-package preventive.care;
+package vet.preventive.care;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

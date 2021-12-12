@@ -1,4 +1,4 @@
-package animalstatus;
+package vet.animalstatus;
 
 import java.util.Objects;
 

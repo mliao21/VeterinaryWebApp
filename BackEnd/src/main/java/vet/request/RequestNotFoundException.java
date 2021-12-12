@@ -1,4 +1,4 @@
-package request;
+package vet.request;
 
 public class RequestNotFoundException extends RuntimeException{
 	

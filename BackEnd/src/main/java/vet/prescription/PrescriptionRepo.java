@@ -1,4 +1,4 @@
-package prescription;
+package vet.prescription;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

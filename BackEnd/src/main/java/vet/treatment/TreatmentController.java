@@ -1,4 +1,4 @@
-package treatment;
+package vet.treatment;
 
 import java.util.List;
 

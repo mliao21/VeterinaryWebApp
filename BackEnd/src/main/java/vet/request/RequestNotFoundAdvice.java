@@ -1,4 +1,4 @@
-package request;
+package vet.request;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

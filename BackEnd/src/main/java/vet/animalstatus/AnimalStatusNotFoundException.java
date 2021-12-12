@@ -1,4 +1,4 @@
-package animalstatus;
+package vet.animalstatus;
 
 public class AnimalStatusNotFoundException extends RuntimeException{
 	

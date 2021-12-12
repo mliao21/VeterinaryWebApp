@@ -1,4 +1,4 @@
-package treatment;
+package vet.treatment;
 
 public class TreatmentNotFoundException extends RuntimeException{
 	

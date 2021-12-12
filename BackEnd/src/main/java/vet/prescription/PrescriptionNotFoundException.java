@@ -1,4 +1,4 @@
-package prescription;
+package vet.prescription;
 
 public class PrescriptionNotFoundException extends RuntimeException {
 	

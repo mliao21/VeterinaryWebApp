@@ -1,4 +1,4 @@
-package treatment;
+package vet.treatment;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

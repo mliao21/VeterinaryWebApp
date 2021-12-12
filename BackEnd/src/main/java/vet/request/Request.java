@@ -1,4 +1,4 @@
-package request;
+package vet.request;
 
 import java.util.Objects;
 

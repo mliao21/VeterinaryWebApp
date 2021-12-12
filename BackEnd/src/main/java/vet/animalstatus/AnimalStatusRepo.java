@@ -1,4 +1,4 @@
-package animalstatus;
+package vet.animalstatus;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
