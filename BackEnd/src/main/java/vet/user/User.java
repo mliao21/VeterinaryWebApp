@@ -17,10 +17,12 @@ import lombok.NoArgsConstructor;
 public class User {
 	
 	
-	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer id;
+	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Integer userid;
+	private String role;
 	private String username;
-	private String type;
+	private String email;
 	private String password;
+	private String status;
 	
 //	private String email;
 //	private String activationDate;

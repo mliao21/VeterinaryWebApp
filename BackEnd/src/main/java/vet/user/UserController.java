@@ -10,61 +10,37 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import vet.treatment.Treatment;
+
+@RestController
 public class UserController {
 	
-	private final UserRepository repository;
+	private UserDAO userDAO;
 	
-	  UserController(UserRepository repository) {
-	    this.repository = repository;
-	  }
+	@GetMapping("/users")
+	public List<User> getTreatments(){
+		return userDAO.getAll();
+	}
 	
-	  @GetMapping("/user/allusers")
-	  List<User> getAllUsers() {
-	    return repository.findAll();
-	  }
+	@GetMapping("/users/{id}")
+	public User getUserByID(@PathVariable int id) {
+		return userDAO.getByID(id);
+	}
 	
-	  @PostMapping("/admin/newuser")
-	  User addNewUser(@RequestBody User newUser) {
-	    return repository.save(newUser);
-	  }
-	  
-	  @GetMapping("/user/{id}")
-	  User getSingleUser(@PathVariable Integer id) {
-	    
-	    return repository.findById(id)
-	      .orElseThrow(() -> new UserNotFoundException(id));
-	  }
+	@PostMapping("/users")
+	public String saveUser(@RequestBody User user) {
+		return userDAO.save(user) + " rows saved to DB";
+	}
 	
-	  @PutMapping("/admin/user/{id}")
-	  User updateUser(@RequestBody User newUser, @PathVariable Integer id) {
-	    
-	    return repository.findById(id)
-	      .map(user -> {
-	        user.setType(newUser.getType());
-	        return repository.save(user);
-	      })
-	      .orElseGet(() -> {
-	        newUser.setId(id);
-	        return repository.save(newUser);
-	      });
-	  }
+	@PutMapping("/users/{id}")
+	public String updateUser(@RequestBody User user, @PathVariable int id) {
+		return userDAO.update(user, id) + " rows updated to DB";
+	}
 	
-	  @DeleteMapping("/admin/user/{id}")
-	  void deleteUser(@PathVariable Integer id) {
-	    repository.deleteById(id);
-	  }
-	  
-//	  @PutMapping("/admin/blockuser/{id}")
-//	  User blockUser(@RequestBody User newUser, @PathVariable Integer id) {
-//	    
-//	    return repository.findById(id)
-//	      .map(user -> {
-//	        user.setBlocked(newUser.isBlocked());
-//	        return repository.save(user);
-//	      })
-//	      .orElseGet(() -> {
-//	        newUser.setId(id);
-//	        return repository.save(newUser);
-//	      });
-//	  }
+	@DeleteMapping("/users/{id}")
+	public String deleteUser(@PathVariable int id) {
+		return userDAO.delete(id) + " rows deleted from DB";
+	}
+	
+
 }
