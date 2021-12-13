@@ -26,7 +26,7 @@ public class AnimalStatusImpl implements AnimalStatusDAO{
 	@Override
 	public int update(AnimalStatus animalStatus, int id) {
 		
-		return jdbcTemplate.update("UPDATE ANIMAL_STATUS SET location=?, status =?, description =?, lastuser =? WHERE id=?", new Object[] {animalStatus.getLocation(), 
+		return jdbcTemplate.update("UPDATE ANIMAL_STATUS SET location=?, status =?, description =?, lastuser =? WHERE animalid=?", new Object[] {animalStatus.getLocation(), 
 				animalStatus.getStatus(),
 				animalStatus.getDescription(),
 				animalStatus.getLastuser(), id});
@@ -49,7 +49,7 @@ public class AnimalStatusImpl implements AnimalStatusDAO{
 	@Override
 	public AnimalStatus getByID(int id) {
 		
-		return jdbcTemplate.queryForObject("SELECT * FROM AnimalStatus WHERE id =?", new BeanPropertyRowMapper<AnimalStatus>(AnimalStatus.class),id);
+		return jdbcTemplate.queryForObject("SELECT * FROM AnimalStatus WHERE animalid=?", new BeanPropertyRowMapper<AnimalStatus>(AnimalStatus.class),id);
 	}
 
 }

@@ -14,11 +14,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-
+@AllArgsConstructor
 public class AnimalStatus {
 
 	
-	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long animalid;
 	private String location;
 
 	private String status;
@@ -27,13 +27,13 @@ public class AnimalStatus {
 
 	private int lastuser;
 
-	public AnimalStatus(String location, String status, String description, int lastuser) {
-		super();
-		this.location = location;
-		this.status = status;
-		this.description = description;
-		this.lastuser = lastuser;
-	}
+//	public AnimalStatus(String location, String status, String description, int lastuser) {
+//		super();
+//		this.location = location;
+//		this.status = status;
+//		this.description = description;
+//		this.lastuser = lastuser;
+//	}
 	
 	
 
