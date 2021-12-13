@@ -38,7 +38,7 @@ public class CommentsController {
 		return commentsDAO.update(comment, id) + " rows updated to DB";
 	}
 	
-	@DeleteMapping("treatments/{id}")
+	@DeleteMapping("comments/{id}")
 	public String deleteComments(@PathVariable int id) {
 		return commentsDAO.delete(id) + " rows deleted from DB";
 	}

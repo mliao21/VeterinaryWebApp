@@ -18,7 +18,7 @@ public class UserController {
 	private UserDAO userDAO;
 	
 	@GetMapping("/users")
-	public List<User> getTreatments(){
+	public List<User> getUsers(){
 		return userDAO.getAll();
 	}
 	

@@ -15,30 +15,30 @@ import org.springframework.web.bind.annotation.RestController;
 public class AnimalStatusController {
 	
 	@Autowired
-	private AnimalStatusDAO aDAO;
+	private AnimalStatusDAO animalStatusDAO;
 
 	@GetMapping("/animalStatus")
 	public List<AnimalStatus> getAnimalStatus(){
-		return aDAO.getAllAnimalStatus();
+		return animalStatusDAO.getAllAnimalStatus();
 	}
 	
 	@GetMapping("/animalStatus/{id}")
 	public AnimalStatus getAnimalByID(@PathVariable int id) {
-		return aDAO.getByID(id);
+		return animalStatusDAO.getByID(id);
 	}
 	
 	@PostMapping("/animalStatus")
 	public String animalStatus(@RequestBody AnimalStatus animalStatus) {
-		return aDAO.save(animalStatus) + " rows saved to DB";
+		return animalStatusDAO.save(animalStatus) + " rows saved to DB";
 	}
 	
 	@PutMapping("animalStatus/{id}")
 	public String updateAnimal(@RequestBody AnimalStatus animalStatus, @PathVariable int id) {
-		return aDAO.update(animalStatus, id) + " rows updated to DB";
+		return animalStatusDAO.update(animalStatus, id) + " rows updated to DB";
 	}
 	
 	@DeleteMapping("animalStatus/{id}")
 	public String deleteAnimalStatus(@PathVariable int id) {
-		return aDAO.delete(id) + " rows deleted from DB";
+		return animalStatusDAO.delete(id) + " rows deleted from DB";
 	}
 }

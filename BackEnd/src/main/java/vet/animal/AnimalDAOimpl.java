@@ -25,7 +25,7 @@ public class AnimalDAOimpl implements AnimalDAO{
 
 	@Override
 	public int update(Animal animal, int id) {
-		return jdbcTemplate.update("UPDATE ANIMAL SET type=?, breed =?, name =?, status =?, weight =? WHERE id=?", new Object[] {animal.getName(), 
+		return jdbcTemplate.update("UPDATE ANIMAL SET type=?, breed =?, name =?, status =?, weight =? WHERE animalid=?", new Object[] {animal.getName(), 
 				animal.getSex(),
 				animal.getAge(),
 				animal.getWeight(),
@@ -35,7 +35,7 @@ public class AnimalDAOimpl implements AnimalDAO{
 
 	@Override
 	public int delete(int id) {
-		return jdbcTemplate.update("DELETE FROM ANIMAL WHERE id=?", id);
+		return jdbcTemplate.update("DELETE FROM ANIMAL WHERE animalid=?", id);
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class AnimalDAOimpl implements AnimalDAO{
 	@Override
 	public Animal getByID(int id) {
 	
-		return jdbcTemplate.queryForObject("SELECT * FROM ANIMAL WHERE id =?", new BeanPropertyRowMapper<Animal>(Animal.class),id);
+		return jdbcTemplate.queryForObject("SELECT * FROM ANIMAL WHERE animalid =?", new BeanPropertyRowMapper<Animal>(Animal.class),id);
 	}
 	
 }

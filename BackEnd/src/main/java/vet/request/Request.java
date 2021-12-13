@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Request {
 	
-	
+	@Id
 	private int animalId;
 	private int userId;
 	private String requestStatus;
