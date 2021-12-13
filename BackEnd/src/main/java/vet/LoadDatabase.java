@@ -1,4 +1,4 @@
-package vet.app;
+package vet;
 
 
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package vet.app;
+package vet;
 
 
 import org.springframework.stereotype.Controller;
