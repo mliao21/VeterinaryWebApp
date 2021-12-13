@@ -8,6 +8,6 @@ public interface RequestDAO {
 	int update(Request Request, int id);
 	int delete(int animalId);
 	List<Request> getAll();
-	Request getByStatus();
+	List<Request> getByStatus();
 
 }

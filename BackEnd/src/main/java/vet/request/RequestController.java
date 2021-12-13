@@ -23,7 +23,7 @@ public class RequestController {
 	}
 	
 	@GetMapping("/requests/requestStatus")
-	public Request getAvailableAnimals(){
+	public List<Request> getAvailableAnimals(){
 		return reqDAO.getByStatus();
 	}
 	
