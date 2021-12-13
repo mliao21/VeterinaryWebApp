@@ -5,10 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import vet.treatment.Treatment;
 
-
+@Component
 public class ImageDAOImpl implements ImageDAO{
 	
 	@Autowired
@@ -26,7 +27,7 @@ public class ImageDAOImpl implements ImageDAO{
 
 	@Override
 	public int update(Image image, int id) {
-		return jdbcTemplate.update("UPDATE IMAGE SET AnimalID=?, CreationDate=?, File=?, Type=?, userid=? WHERE id=?" , new Object[] {image.getAnimalID(), 
+		return jdbcTemplate.update("UPDATE IMAGE SET AnimalID=?, CreationDate=?, File=?, Type=?, userid=? WHERE imageid=?" , new Object[] {image.getAnimalID(), 
 				image.getCreationDate(),
 				image.getFile(),
 				image.getType(),
@@ -35,7 +36,7 @@ public class ImageDAOImpl implements ImageDAO{
 
 	@Override
 	public int delete(int id) {
-		return jdbcTemplate.update("DELETE FROM IMAGES WHERE id=?", id);
+		return jdbcTemplate.update("DELETE FROM IMAGES WHERE imageid=?", id);
 	}
 
 	@Override
@@ -45,7 +46,7 @@ public class ImageDAOImpl implements ImageDAO{
 
 	@Override
 	public Image getByID(int id) {
-		return jdbcTemplate.queryForObject("SELECT * FROM IMAGES WHERE id =?", new BeanPropertyRowMapper<Image>(Image.class),id);
+		return jdbcTemplate.queryForObject("SELECT * FROM IMAGES WHERE imageid =?", new BeanPropertyRowMapper<Image>(Image.class),id);
 	}
 	
 	
