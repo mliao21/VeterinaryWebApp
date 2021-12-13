@@ -24,7 +24,7 @@ public class CommentsDAOImpl implements CommentsDAO{
 	
 	@Override
 	public int update(Comments comment, int id) {
-		return jdbcTemplate.update("UPDATE COMMENTS SET userID=?,animalID=?, Description=?, Date=? WHERE id=?" , new Object[] {comment.getUserId(), 
+		return jdbcTemplate.update("UPDATE COMMENTS SET userID=?,animalID=?, Description=?, Date=? WHERE commentid=?" , new Object[] {comment.getUserId(), 
 				comment.getAnimalId(),
 				comment.getDescription(),
 				comment.getDate()});
@@ -32,7 +32,7 @@ public class CommentsDAOImpl implements CommentsDAO{
 
 	@Override
 	public int delete(int id) {
-		return jdbcTemplate.update("DELETE FROM COMMENTS WHERE id=?", id);
+		return jdbcTemplate.update("DELETE FROM COMMENTS WHERE commentid=?", id);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class CommentsDAOImpl implements CommentsDAO{
 
 	@Override
 	public Comments getByID(int id) {
-		return jdbcTemplate.queryForObject("SELECT * FROM COMMENTS WHERE id =?", new BeanPropertyRowMapper<Comments>(Comments.class),id);
+		return jdbcTemplate.queryForObject("SELECT * FROM COMMENTS WHERE commentid =?", new BeanPropertyRowMapper<Comments>(Comments.class),id);
 	}
 	
 }
