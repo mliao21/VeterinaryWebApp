@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 
 public class Treatment {
 	
-	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long treatmentid;
 	private String type;
 	private int animalId;
 	private String description;

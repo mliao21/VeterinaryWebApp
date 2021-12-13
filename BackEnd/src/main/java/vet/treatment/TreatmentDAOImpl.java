@@ -14,7 +14,7 @@ public class TreatmentDAOImpl implements TreatmentDAO {
 
 	@Override
 	public int save(Treatment treatment) {
-		return jdbcTemplate.update("INSERT INTO TREATMENT(type, animalId, description, stage, userid, date) VALUES (?,?,?,?,?,?)" , new Object[] {treatment.getType(), 
+		return jdbcTemplate.update("INSERT INTO TREATMENTS(type, animalId, description, stage, userid, date) VALUES (?,?,?,?,?,?)" , new Object[] {treatment.getType(), 
 				treatment.getAnimalId(),
 				treatment.getDescription(),
 				treatment.getStage(),
@@ -24,7 +24,7 @@ public class TreatmentDAOImpl implements TreatmentDAO {
 
 	@Override
 	public int update(Treatment treatment, int id) {
-		return jdbcTemplate.update("UPDATE TREATMENT SET type=?, animalId=?, description=?, stage=?, userid=?, date=? WHERE id=?" , new Object[] {treatment.getType(), 
+		return jdbcTemplate.update("UPDATE TREATMENTS SET type=?, animalId=?, description=?, stage=?, userid=?, date=? WHERE treatmentid=?" , new Object[] {treatment.getType(), 
 				treatment.getAnimalId(),
 				treatment.getDescription(),
 				treatment.getStage(),
@@ -34,22 +34,22 @@ public class TreatmentDAOImpl implements TreatmentDAO {
 
 	@Override
 	public int delete(int id) {
-		return jdbcTemplate.update("DELETE FROM TREATMENT WHERE id=?", id);
+		return jdbcTemplate.update("DELETE FROM TREATMENTS WHERE treatmentid=?", id);
 	}
 
 	@Override
 	public List<Treatment> getAll() {
-		return jdbcTemplate.query("SELECT * from TREATMENT", new BeanPropertyRowMapper<Treatment>(Treatment.class));
+		return jdbcTemplate.query("SELECT * from TREATMENTS", new BeanPropertyRowMapper<Treatment>(Treatment.class));
 	}
 
 	@Override
 	public List<Treatment> getNewTreatment() {
-		return jdbcTemplate.query("SELECT * FROM TREATMENT WHERE stage = 'In progress'", new BeanPropertyRowMapper<Treatment>(Treatment.class));
+		return jdbcTemplate.query("SELECT * FROM TREATMENTS WHERE stage = 'In progress'", new BeanPropertyRowMapper<Treatment>(Treatment.class));
 	}
 
 	@Override
 	public Treatment getByID(int id) {
-		return jdbcTemplate.queryForObject("SELECT * FROM TREATMENT WHERE id =?", new BeanPropertyRowMapper<Treatment>(Treatment.class),id);
+		return jdbcTemplate.queryForObject("SELECT * FROM TREATMENTS WHERE treatmentid =?", new BeanPropertyRowMapper<Treatment>(Treatment.class),id);
 	}
 	
 	
