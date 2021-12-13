@@ -27,7 +27,7 @@ public class PrescriptionDAOImpl implements PrescriptionDAO{
 	@Override
 	public int update(Prescription prescriptions, int id) {
 		
-		return jdbcTemplate.update("UPDATE PRESCRIPTIONS SET animalid=?, userid =?, date =?, instructions =?, drugname =?, dosage = ?, delieverymethod =? WHERE id=?", new Object[] {prescriptions.getAnimalid(), 
+		return jdbcTemplate.update("UPDATE PRESCRIPTIONS SET animalid=?, userid =?, date =?, instructions =?, drugname =?, dosage = ?, delieverymethod =? WHERE prescriptionid=?", new Object[] {prescriptions.getAnimalid(), 
 				prescriptions.getUserid(),
 				prescriptions.getDate(),
 				prescriptions.getInstructions(), prescriptions.getDrugname(), prescriptions.getDosage(), prescriptions.getDelieverymethod()});
@@ -35,20 +35,20 @@ public class PrescriptionDAOImpl implements PrescriptionDAO{
 
 	@Override
 	public int delete(int id) {
-		return jdbcTemplate.update("DELETE FROM PRESCRIPTIONS WHERE id =?", id);
+		return jdbcTemplate.update("DELETE FROM PRESCRIPTIONS WHERE prescriptionid =?", id);
 		
 	}
 
 	@Override
 	public Prescription getByID(int id) {
 		
-		return jdbcTemplate.queryForObject("SELECT * FROM PRESCRIPTIONS WHERE id =?", new BeanPropertyRowMapper<Prescription>(Prescription.class),id);
+		return jdbcTemplate.queryForObject("SELECT * FROM PRESCRIPTIONS WHERE prescriptionid =?", new BeanPropertyRowMapper<Prescription>(Prescription.class),id);
 	}
 
 	@Override
 	public List<Prescription> getAllPrescriptions() {
 		
-		return jdbcTemplate.query("SELECT * from ANIMAL", new BeanPropertyRowMapper<Prescription>(Prescription.class));
+		return jdbcTemplate.query("SELECT * from PRESCRIPTIONS", new BeanPropertyRowMapper<Prescription>(Prescription.class));
 
 	}
 

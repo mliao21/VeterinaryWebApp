@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 
 public class Prescription {
 	
-	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long prescriptionid;
 	private int animalid;
 	private int  userid;
 	private String date;

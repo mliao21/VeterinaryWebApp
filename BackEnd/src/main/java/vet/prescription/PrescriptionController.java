@@ -37,7 +37,7 @@ public class PrescriptionController {
 		return pDAO.update(prescriptions, id) + " rows updated to DB";
 	}
 	
-	@DeleteMapping("Prescription/{id}")
+	@DeleteMapping("prescription/{id}")
 	public String deleteAnimalStatus(@PathVariable int id) {
 		return pDAO.delete(id) + " rows deleted from DB";
 	}
