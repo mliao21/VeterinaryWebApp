@@ -1,4 +1,4 @@
-package vet.user;
+package vet.app;
 
 import java.util.List;
 
