@@ -17,31 +17,31 @@ public class PreventiveCareImpl  implements PreventiveCareDAO {
 	@Override
 	public int save(PreventiveCare preventiveCare) {
 		
-		return jdbcTemplate.update("INSERT INTO PREVENTIVE_CARE(type) VALUES (?)", new Object[] {preventiveCare.getType()});
+		return jdbcTemplate.update("INSERT INTO PREVENTIVE_CARE_TYPES(type) VALUES (?)", new Object[] {preventiveCare.getType()});
 	}
 
 	@Override
 	public int update(PreventiveCare preventiveCare, int id) {
 		
-		return jdbcTemplate.update("UPDATE PREVENTIVE_CARE SET type=?", new Object[] {preventiveCare.getType()});
+		return jdbcTemplate.update("UPDATE PREVENTIVE_CARE_TYPES SET type=? where preventiveCareId =?", new Object[] {preventiveCare.getType()});
 	}
 	
 
 	@Override
 	public int delete(int id) {
-		return jdbcTemplate.update("DELETE FROM PREVENTIVE_CARE WHERE id=?", id);
+		return jdbcTemplate.update("DELETE FROM PREVENTIVE_CARE_TYPES WHERE preventivecareid=?", id);
 	}
 
 	@Override
 	public List<PreventiveCare> getAll() {
 		
-		return jdbcTemplate.query("SELECT * from PREVENTIVE_CARE", new BeanPropertyRowMapper<PreventiveCare>(PreventiveCare.class));
+		return jdbcTemplate.query("SELECT * from PREVENTIVE_CARE_TYPES", new BeanPropertyRowMapper<PreventiveCare>(PreventiveCare.class));
 	}
 
 	@Override
 	public PreventiveCare getByID(int id) {
 		
-		return jdbcTemplate.queryForObject("SELECT * FROM PREVENTIVE_CARE WHERE id =?", new BeanPropertyRowMapper<PreventiveCare>(PreventiveCare.class),id);
+		return jdbcTemplate.queryForObject("SELECT * FROM PREVENTIVE_CARE_TYPES WHERE preventivecareid =?", new BeanPropertyRowMapper<PreventiveCare>(PreventiveCare.class),id);
 	}
 
 }

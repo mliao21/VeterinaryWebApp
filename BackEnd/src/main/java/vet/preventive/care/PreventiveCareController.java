@@ -22,7 +22,7 @@ public class PreventiveCareController {
 		return preDAO.getAll();
 	}
 	
-	@GetMapping("/preventiveCare/id")
+	@GetMapping("/preventiveCare/{id}")
 	public PreventiveCare getPreventiveCarebyId(@PathVariable int id){
 		return preDAO.getByID(id);
 	}
