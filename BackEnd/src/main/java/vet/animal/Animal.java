@@ -21,7 +21,7 @@ public class Animal {
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long animalid;
 	private String name;
 	private String sex;
-	private String Age;
+	private int age;
 	private double weight;
 	private String species;
 	private String breed;

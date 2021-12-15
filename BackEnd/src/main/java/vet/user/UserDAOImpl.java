@@ -15,7 +15,8 @@ public class UserDAOImpl implements UserDAO{
 	
 	@Override
 	public int save(User user) {
-		return jdbcTemplate.update("INSERT INTO USER(role, username, email, password, status) VALUES (?,?,?,?,?)" , new Object[] {user.getRole(), 
+		return jdbcTemplate.update("INSERT INTO USER(role, username, email, password, status) VALUES (?,?,?,?,?)" , new Object[] {
+				user.getRole(), 
 				user.getUsername(),
 				user.getEmail(),
 				user.getPassword(),

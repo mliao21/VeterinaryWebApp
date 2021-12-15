@@ -3,6 +3,8 @@ package vet.animal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
 public class AnimalController {
 
@@ -27,9 +30,15 @@ public class AnimalController {
 		return aDAO.getByID(id);
 	}
 	
+	@GetMapping("/available_animals")
+	public List<Animal> getAvailableAnimals(){
+		return aDAO.getAvailableAnimals();
+	}
+	
 	@PostMapping("/animals")
-	public String saveAnimal(@RequestBody Animal animal) {
-		return aDAO.save(animal) + " rows saved to DB";
+	public ResponseEntity<?> saveAnimal(@RequestBody Animal animal) {
+		aDAO.save(animal);
+		return ResponseEntity.ok("Animal registered successfully!");
 	}
 	
 	@PutMapping("animals/{id}")

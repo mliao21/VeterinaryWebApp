@@ -15,7 +15,7 @@ public class AnimalDAOimpl implements AnimalDAO{
 	
 	@Override
 	public int save(Animal animal) {
-		return jdbcTemplate.update("INSERT INTO ANIMAL(type,breed,name,status,weight) VALUES (?,?,?,?,?)" ,new Object[] {animal.getName(), 
+		return jdbcTemplate.update("INSERT INTO ANIMAL(name, sex, age, weight, species, breed) VALUES (?,?,?,?,?,?)" ,new Object[] {animal.getName(), 
 				animal.getSex(),
 				animal.getAge(),
 				animal.getWeight(),
@@ -43,11 +43,19 @@ public class AnimalDAOimpl implements AnimalDAO{
 		
 		return jdbcTemplate.query("SELECT * from ANIMAL", new BeanPropertyRowMapper<Animal>(Animal.class));
 	}
+	
+	@Override
+	public List<Animal> getAvailableAnimals(){
+		return jdbcTemplate.query("SELECT A.*, S.Status from ANIMAL AS A, ANIMAL_STATUS AS S WHERE A.AnimalID = S.AnimalID AND S.Status = 'Available'", new BeanPropertyRowMapper<Animal>(Animal.class));
+	}	
 
 	@Override
 	public Animal getByID(int id) {
 	
 		return jdbcTemplate.queryForObject("SELECT * FROM ANIMAL WHERE animalid =?", new BeanPropertyRowMapper<Animal>(Animal.class),id);
 	}
+	
+	
+	
 	
 }

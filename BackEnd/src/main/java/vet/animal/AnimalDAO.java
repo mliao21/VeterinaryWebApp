@@ -9,4 +9,5 @@ public interface AnimalDAO {
 	int delete(int id);
 	List<Animal> getAll();
 	Animal getByID(int id);
+	List<Animal> getAvailableAnimals();
 }
