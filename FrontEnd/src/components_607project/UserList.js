@@ -27,7 +27,7 @@ const UserList = ({ users }) => {
             </nav>
 
             <div className="title" css={css` margin-top: 70px;`}>
-                <div class="table-container">
+                <div class="table-container ml-5">
                     <table className="table is-narrow is-striped is-fullwidth" css={css`margin-left: auto; margin-right: auto;`}>
                         <thead>
                             <tr className="is-size-4">

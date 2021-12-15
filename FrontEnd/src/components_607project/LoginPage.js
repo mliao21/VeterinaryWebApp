@@ -15,12 +15,12 @@ const LoginPage = () => {
             <div css={css`display: flex; justify-content: center; margin-top: 70px;`}>
                 <input 
                     css={css`max-width: 40%; text-align:center; border: 1px solid;`}  
-                    type="text" className="input is-medium" placeholder="username / email"/>
+                    type="email" className="input is-medium" placeholder="username / email"/>
             </div>
             <div css={css`display: flex; justify-content: center; margin-top: 10px;`}>
                 <input 
                     css={css`max-width: 40%; text-align:center; border: 1px solid;`}  
-                    type="text" className="input is-medium" placeholder="********"/>
+                    type="password" className="input is-medium" placeholder="********"/>
             </div>
             <div css={css`display: flex; justify-content: center; margin-top: 10px`} className="container">
                 <div className="nav-item">

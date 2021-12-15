@@ -2,8 +2,27 @@
 import { css, jsx } from '@emotion/react';
 import { NavLink } from "react-router-dom";
 import logo from './ucvm-logo.png';
+import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import axios from "axios";
 
 const SearchUser = ({ users }) => {
+
+    const [filteredData, setFilteredData] = useState([]);
+
+    const handleFilter = (event) => {
+        const searchWord = event.target.value;
+        const newFilter = users.filter((value) => {
+            return value.username.toLowerCase().includes(searchWord.toLowerCase());
+        });
+        if (searchWord === "") {
+            setFilteredData([]);
+        } else {
+            setFilteredData(newFilter);
+        }
+    };
+
     return (
         <body>
             <nav class="navbar is-fixed-top">
@@ -16,7 +35,7 @@ const SearchUser = ({ users }) => {
                     <div class="navbar-item">
                         <div class="buttons">
                             <NavLink className="nav-link" to="/admin_main">
-                                <button class="button is-primary mr-2">Back</button>
+                                <button class="button is-info mr-2">Back</button>
                             </NavLink>
                             <NavLink className="nav-link" to="/">
                                 <button class="button is-info">Log out</button>
@@ -27,17 +46,15 @@ const SearchUser = ({ users }) => {
             </nav>
 
             <div className="title" css={css` margin-top: 70px;`}>
-                <div class="field has-addons">
-                    <div class="control is-expanded ml-5">
-                        <input class="input" type="text" placeholder="Find user" />
-                    </div>
-                    <div class="control mr-6">
-                        <a class="button is-link">
-                            Search
-                        </a>
-                    </div>
+                <div className="searchInputs ml-5 mr-5">
+                    <p class="control has-icons-right">
+                        <input class="input" type="text" placeholder="Find by Username" onChange={handleFilter} />
+                        <span class="icon is-medium is-right">
+                            <FontAwesomeIcon icon={faSearch} />
+                        </span>
+                    </p>
                 </div>
-                <div class="table-container">
+                <div class="table-container ml-6">
                     <table className="table is-narrow is-striped is-fullwidth" css={css`margin-left: auto; margin-right: auto;`}>
                         <thead>
                             <tr className="is-size-4">
@@ -48,19 +65,31 @@ const SearchUser = ({ users }) => {
                                 <th title="Status">Status</th>
                             </tr>
                         </thead>
-                        <tbody className="is-size-5">
-                            {
-                                users.map((item, index) => (
-                                    <tr key={index}>
-                                        <td>{users[index].userid}</td>
-                                        <td>{users[index].role}</td>
-                                        <td>{users[index].username}</td>
-                                        <td>{users[index].email}</td>
-                                        <td>{users[index].status}</td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
+                        {filteredData.length != 0 && (
+                            <tbody className="dataResults is-size-5">
+                                {filteredData.map((value) => {
+                                    return (
+                                        <tr key={value.userid}>
+                                            <td>{value.userid}</td>
+                                            <td>{value.role}</td>
+                                            <td>{value.username}</td>
+                                            <td>{value.email}</td>
+                                            <td>{value.status}</td>
+                                            <button class="button is-primary mb-1 mr-1" >
+                                                <span class="icon is-medium is-right">
+                                                    <FontAwesomeIcon icon={faEdit} />
+                                                </span>
+                                            </button>
+                                            <button class="button is-danger mb-1" >
+                                                <span class="icon is-medium is-right">
+                                                    <FontAwesomeIcon icon={faTrash} />
+                                                </span>
+                                            </button>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        )}
                     </table>
                 </div>
             </div>

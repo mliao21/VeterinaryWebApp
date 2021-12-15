@@ -9,21 +9,28 @@ import {
   SearchUser,
   UserList,
   CreateAnimal,
+  TeachingTechnician,
+  RequestAnimal,
 } from "./components_607project";
 
 class App extends Component {
   state = {
-    userLists: []
+    userLists: [],
+    availableAnimals: []
   };
 
   async componentDidMount() {
     const resUsers = await fetch('/users');
     const usersBody = await resUsers.json();
     this.setState({userLists: usersBody});
+
+    const resAvailable = await fetch('/available_animals');
+    const availBody = await resAvailable.json();
+    this.setState({availableAnimals: availBody});
   }
 
   render() {
-    const {userLists} = this.state;
+    const {userLists, availableAnimals} = this.state;
     return (
       <Router>
         <Routes>
@@ -33,6 +40,8 @@ class App extends Component {
           <Route path="/search_user" element={<SearchUser users={userLists} />} />
           <Route path="/user_list" element={<UserList users={userLists} />} />
           <Route path="/create_animal" element={<CreateAnimal />} />
+          <Route path="/teaching_tech" element={<TeachingTechnician />} />
+          <Route path="/request_animal" element={<RequestAnimal animals={availableAnimals} />} />
         </Routes>
       </Router>
     );
