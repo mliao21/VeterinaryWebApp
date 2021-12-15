@@ -62,8 +62,8 @@ CREATE TABLE ANIMAL_STATUS (
     Description 	varchar(200),
     LastUser		integer	not null,
 	primary key (AnimalID),
-    foreign key (AnimalID) references ANIMAL(AnimalID),
-    foreign key (LastUser) references USER(UserID)
+    foreign key (AnimalID) references ANIMAL(AnimalID) on delete cascade,
+    foreign key (LastUser) references USER(UserID) on delete cascade
 );
 
 INSERT INTO ANIMAL_STATUS (AnimalID, Location, Status, Description, LastUser)
@@ -105,8 +105,8 @@ CREATE TABLE ANIMAL_ONGOING_CARE (
     PreventiveCareID	integer	not null,
     Schedule			varchar(10) not null,
 	primary key (AnimalID, PreventiveCareID),
-    foreign key (AnimalID) references ANIMAL(AnimalID),
-    foreign key (PreventiveCareID) references PREVENTIVE_CARE_TYPES(PreventiveCareID)
+    foreign key (AnimalID) references ANIMAL(AnimalID) on delete cascade,
+    foreign key (PreventiveCareID) references PREVENTIVE_CARE_TYPES(PreventiveCareID) on delete cascade
 );
 
 INSERT INTO ANIMAL_ONGOING_CARE (AnimalID, PreventiveCareID, Schedule)
@@ -135,8 +135,8 @@ CREATE TABLE IMAGES (
     Type			varchar(15) not null,
     UserID			integer	not null,
 	primary key (ImageID),
-    foreign key (AnimalID) references ANIMAL(AnimalID),
-    foreign key (UserID) references USER(UserID)
+    foreign key (AnimalID) references ANIMAL(AnimalID) on delete cascade,
+    foreign key (UserID) references USER(UserID) on delete cascade
 );
 
 INSERT INTO IMAGES (AnimalID, CreationDate, File, Type, UserID)
@@ -168,8 +168,8 @@ CREATE TABLE PRESCRIPTIONS (
     Dosage			varchar(10) not null,
     DeliveryMethod	varchar(50),
 	primary key (PrescriptionID),
-    foreign key (AnimalID) references ANIMAL(AnimalID),
-    foreign key (UserID) references USER(UserID)
+    foreign key (AnimalID) references ANIMAL(AnimalID) on delete cascade,
+    foreign key (UserID) references USER(UserID) on delete cascade
 );
 
 INSERT INTO PRESCRIPTIONS (AnimalID, UserID, Date, Instructions, DrugName, Dosage, DeliveryMethod)
@@ -194,8 +194,8 @@ CREATE TABLE TREATMENTS (
     UserID			integer	not null,
     Date			date not null,    
 	primary key (TreatmentID),
-    foreign key (AnimalID) references ANIMAL(AnimalID),
-    foreign key (UserID) references USER(UserID)
+    foreign key (AnimalID) references ANIMAL(AnimalID) on delete cascade,
+    foreign key (UserID) references USER(UserID) on delete cascade
 );
 
 INSERT INTO TREATMENTS (Type, AnimalID, Description, Stage, UserID, Date)
@@ -220,8 +220,8 @@ CREATE TABLE ANIMAL_HISTORY (
     Value			varchar(15) not null,
     UserID			integer	not null,
 	primary key (RecordID),
-    foreign key (AnimalID) references ANIMAL(AnimalID),
-    foreign key (UserID) references USER(UserID)
+    foreign key (AnimalID) references ANIMAL(AnimalID) on delete cascade,
+    foreign key (UserID) references USER(UserID) on delete cascade
 );
 
 INSERT INTO ANIMAL_HISTORY (Date, AnimalID, Measurement, Value, UserID)
@@ -250,8 +250,8 @@ CREATE TABLE COMMENTS (
     Description 	varchar(200) not null,
     Date			date not null,  
 	primary key (CommentID),
-    foreign key (AnimalID) references ANIMAL(AnimalID),
-    foreign key (UserID) references USER(UserID)
+    foreign key (AnimalID) references ANIMAL(AnimalID) on delete cascade,
+    foreign key (UserID) references USER(UserID) on delete cascade
 );
 
 INSERT INTO COMMENTS (UserID, AnimalID, Description, Date)
@@ -273,8 +273,8 @@ CREATE TABLE REQUESTS (
     RequestStatus	varchar(20) not null,
     RequestedDate	date not null,  
 	primary key (AnimalID),
-    foreign key (AnimalID) references ANIMAL(AnimalID),
-    foreign key (UserID) references USER(UserID)
+    foreign key (AnimalID) references ANIMAL(AnimalID) on delete cascade,
+    foreign key (UserID) references USER(UserID) on delete cascade
 );
 
 INSERT INTO REQUESTS (AnimalID, UserID, RequestStatus, RequestedDate)
@@ -288,3 +288,13 @@ VALUES
 ('6', '7', 'new', '2022-01-07'),
 ('7', '4', 'new', '2022-01-08'),
 ('8', '7', 'new', '2022-01-09');
+
+SELECT * from Roles;
+SELECT * from users;
+INSERT INTO Roles (id,name)
+VALUES
+(1,"ROLE_ADMIN"),
+(2,"ROLE_TECHNICIAN"),
+(3,"ROLE_ATTENDANT"),
+(4,"ROLE_HEALTH"),
+(5,"ROLE_STUDENT");
