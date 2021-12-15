@@ -34,7 +34,10 @@ const AdminMain = () => {
                                 <NavLink className="nav-link" to="/create_animal">
                                     <button class="button is-rounded is-medium is-fullwidth mt-5">Create Animal</button>
                                 </NavLink>
+                                <NavLink className="nav-link" to="/search_animal">
                                 <button class="button is-rounded is-medium is-fullwidth mt-3">Search / Modify Animal</button>
+                                </NavLink>
+                                
                             </div>
                         </div>
                         <div class="tile is-parent">

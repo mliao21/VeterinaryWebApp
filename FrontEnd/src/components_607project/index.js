@@ -6,3 +6,4 @@ export { default as UserList } from "./UserList";
 export { default as CreateAnimal } from "./CreateAnimal";
 export { default as TeachingTechnician } from "./TeachingTechnician";
 export { default as RequestAnimal } from "./RequestAnimal";
+export { default as SearchAnimal } from "./SearchAnimal";
