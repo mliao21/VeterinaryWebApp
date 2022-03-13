@@ -1,41 +1,32 @@
-# Final-Project
-### https://drive.google.com/file/d/1UQweqgiaCPtxq4I4Ls1p9GolF3Ye5tdc/view?usp=sharing
+# Veterinary Web Application
 
+## Introduction
+Create a full stack web application to help manage animals and process requests for delivering animals to teaching staff. This application will address the following 3 areas:
+1. Manage animals
+	a. Create animal profile
+	Every animal can have different properties based on type but some properties
+	are the same for example (Name, sex, age, RFID ).
+	b. Search animals
+	c. Ongoing care process(Annual check and vaccination)
+2. User Management
+	a. Add users
+	b. Access control
+	c. Manage users(such as block and suspend)
+3. Treatment process
+	a. Design state diagram for treatment
+	b. Define process with 4 states and 3 role
 
-SPRINT #3 - Designing the required API: User Stories ID >> Classes and Interfaces
+## Technologies Used
+Front-end - Client side:
+* JavaScript
+* React
+* Bulma CSS Framework
+* Axios
 
-VMWA-29: Animal Management Epic
-- VMWA-31 >> curl -X GET http://localhost:8080/animals
-- VMWA-32 >> curl -X GET http://localhost:8080/animals
-- VMWA-33 >> curl -X POST "http://localhost:8080/animals -H "accept: /" -H "Content-Type: application/json" -d "{\"type\":"cat", \"weight\":2.5, \"DOB\":"2018-08-28", \"sex\":"MN", \"colour\":"white", \"bread\":"white cat", \"tattoo\":24234, \"city\": "Mexico", \"RFID\":"19783917834", \"microchirp\":"19783464834", \"status\":"Available", \"draught\":"", \"meat\":"", \"region\":"North America", \"subspecies\":"", \"distinguishing\":"", \"features\":""}"
-- VMWA-36 >> curl -X PUT "http://localhost:8080/animals/4" -H "accept: /" -H "Content-Type: application/json" -d "{ \"id\": 4,\ "type":"bunny\", \"weight\":1.9, \"DOB\":"2018-08-28", \"sex\":"MN",\"colour\":"white", \"bread\":"brown bunny", \"tattoo\":24234, \"city\": \"Canada\", \"RFID\":"19783917834", \"microchirp\":"19783464834", \"status\":"Injured", \"draught\":"", \"meat\":"", \"region\":"North America", \"subspecies\":"", \"distinguishing\":"", \"features\":""},"
-- VMWA-37
-- VMWA-38
-- VMWA-39
-- VMWA-40
-- VMWA-41
-
-VMWA-34: User Management Epic
-- VMWA-42
-- VMWA-43
-- VMWA-44
-- VMWA-45
-- VMWA-46
-- VMWA-60
-	
-VMWA-35: Treatment Process Epic
-- VMWA-47 >> curl -X GET http://localhost:8080/treatment/records
-- VMWA-48 >> curl -X PUT "http://localhost:8080/treatment/records/comment/1" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"id\": 1, \"comment\":\"testing\"},"
-- VMWA-50 >> curl -X POST "http://localhost:8080/treatment/records" -H "accept: */*" -H "Content-Type: application/json" -d "{\"creationDate\":\"11/20/2021\", \"treatmentType\":\"4\", \"animalId\":\"3\", \"stage\":\"REQUEST_REGULAR\", \"comment\":\"has some tiny infections\", \"lastUpdate\":\"11/20/2021\", \"userId\":\"21\"}"
-- VMWA-51 >> curl -X PUT "http://localhost:8080/treatment/records/1" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"id\": 1, \"creationDate\":\"11/20/2021\", \"treatmentType\":\"4\", \"animalId\":\"3\", \"stage\":\"REQUEST_CRITICAL\", \"comment\":\"has some tiny infections\", \"lastUpdate\":\"11/20/2021\", \"userId\":\"21\"},"
-- VMWA-52 >> curl -X PUT "http://localhost:8080/treatment/records/stage/1" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"id\": 1, \"stage\":\"IN_PROGRESS_CRITICAL\"},"
-- VMWA-53 >> curl -X POST "http://localhost:8080/prescription/records" -H "accept: */*" -H "Content-Type: application/json" -d "{\"treatmentId\":\"5\", \"type\":\"4\", \"schedule\":\"Monthly\", \"description\":\"needs to take medication XYZ\", \"lastUpdate\":\"11/20/2021\", \"userId\":\"21\"}"
-- VMWA-54 >> curl -X PUT "http://localhost:8080/treatment/records/stage/1" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"id\": 1, \"stage\":\"IN_PROGRESS_CRITICAL\"},"
-- VMWA-55 >> curl -X GET http://localhost:8080/treatment/records
-- VMWA-56 >> curl -X GET http://localhost:8080/treatment/records/1
-- VMWA-57 >> curl -X PUT "http://localhost:8080/treatment/records/comment/1" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"id\": 1, \"comment\":\"testing\"},"
-- VMWA-59 >> curl -X PUT "http://localhost:8080/treatment/records/comment/1" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"id\": 1, \"comment\":\"testing\"},"
-
+Back-end - Server side:
+* Java
+* Spring Framework with JPA included
+* MySQL
 
 
 
