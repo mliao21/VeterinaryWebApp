@@ -11,8 +11,8 @@ Create a full stack web application to help manage animals and process requests 
 	* Access control
 	* Manage users(such as block and suspend)
 3. Treatment process
-* Design state diagram for treatment
-* Define process with 4 states and 3 role
+	* Design state diagram for treatment
+	* Define process with 4 states and 3 role
 
 ## Technologies Used
 Front-end - Client side:
